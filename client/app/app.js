@@ -1,12 +1,12 @@
-//This file will take all of the separated concerns, and route them to the proper location
-
 angular.module('jokes', [
   'jokes.authenticate',
-  'jokes.home'
+  'jokes.home',
+  'ngRoute'
 ])
+
 .config(function ($routeProvider, $httpProvider) {
 
-  $routerProvider
+  $routeProvider
   .when('/signin', {
     templateUrl: 'app/auth/signin.html',
     controller: 'AuthController'
@@ -16,21 +16,24 @@ angular.module('jokes', [
     controller: 'AuthController'
   })
   .when('/', {
-    templateUrl: 'app/home/home.html'
-    controller: 'Home',
-    resolve: {
-      allJokes: function(Jokes) {
-        return Jokes.getAll()
-      }
-    }
+    templateUrl: 'app/home/home.html',
+    controller: 'HomeController'
+    // resolve: {
+    //   allJokes: function(Jokes) {
+    //     return Jokes.getAll()
+    //   }
+    // }
   })
   .when('/:type', {
     templateUrl: 'app/home/home.html',
-    controller: 'Home'
+    controller: 'HomeController'
   });
 
   $httpProvider.interceptors.push('AttachTokens');
 })
+
+
+
 .factory('AttachTokens', function ($window) {
     var attach = {
     request: function (object) {

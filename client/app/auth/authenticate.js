@@ -32,4 +32,45 @@ angular.module('jokes.authenticate', [])
       });
   };
 
+})
+
+.factory('Auth', function ($http, $location, $window) {
+
+  var signin = function (user) {
+    return $http({
+      method: 'POST',
+      url: '/jokes/user/signin',
+      data: user
+    })
+    .then(function (resp) {
+      return resp.data.token;
+    });
+  };
+
+  var signup = function (user) {
+    return $http({
+      method: 'POST',
+      url: '/jokes/user/signup',
+      data: user
+    })
+    .then(function (resp) {
+      return resp.data.token;
+    });
+  };
+
+  var isAuth = function () {
+    return !!$window.localStorage.getItem('com.jokes');
+  };
+
+  var signout = function () {
+    $window.localStorage.removeItem('com.jokes');
+    $location.path('#/signin');
+  };
+
+  return {
+    signin: signin,
+    signup: signup,
+    isAuth: isAuth,
+    signout: signout
+  };
 });

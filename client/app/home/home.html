@@ -1,11 +1,20 @@
 <div id='container'>
-  <h1> Home of the jokes </h1>
+  <h3> Home of the jokes </h3>
 
-<div class='navi'>
-  <ul>
-    <li><a href='#/'>Home</a></li>
-    <li><a href='#/signup'>Sign up</a></li>
-    <li><a href='#/signin' class='logout' ng-click="destroytoken()"> Logout</a></li>
-  </ul>
+  <div class='navi'>
+    <ul>
+      <li><a href='#/'>Home</a></li>
+      <li><a href='#/signup'>Sign up</a></li>
+      <li><a href='#/signin' class='logout' ng-click="destroytoken()"> Logout</a></li>
+    </ul>
+  </div>
 </div>
+
+<p>
+<p>
+
+<div class='present' ng-controller="homeController">
+  <h2> {{ display }} </h2>
+</div>
+
 
