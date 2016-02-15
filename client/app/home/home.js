@@ -3,13 +3,12 @@ angular.module('jokes.home', [])
 .controller('HomeController', function ($scope, $location, allJokes) {
   $scope.jokes = {};
 
-
   $scope.getAllJokes = function () {
     allJokes.getAllJokes
   };
 
   $scope.getTodaysJoke = function () {
-
+    
   };
 
   $scope.like = function () {
@@ -23,6 +22,7 @@ angular.module('jokes.home', [])
   $scope.destroytoken = function () {
     Auth.signout();
   };
+
 })
 
 .factory('allJokes', function ($http) {
