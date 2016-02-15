@@ -1,6 +1,6 @@
 angular.module('jokes.home', [])
 
-.controller('HomeController', function ($scope, allJokes) {
+.controller('HomeController', function ($scope, $location, allJokes) {
   $scope.jokes = {};
 
 
@@ -9,9 +9,8 @@ angular.module('jokes.home', [])
   };
 
   $scope.getTodaysJoke = function () {
-    
-  };
 
+  };
 
   $scope.like = function () {
     allJokes.like();
@@ -40,10 +39,12 @@ angular.module('jokes.home', [])
   }
 
   var like = function (target) {
+    console.log('liked!')
     //increment the counter for the target joke's likes
   }
 
   var dislike = function (target) {
+    console.log('disliked!')
     //increment the counter for the target joke's dislikes
   }
 
@@ -51,6 +52,6 @@ angular.module('jokes.home', [])
     getAllJokes: getAllJokes,
     like: like,
     dislike: dislike
-  };
+  }
 });
 
