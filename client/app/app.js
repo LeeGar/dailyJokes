@@ -18,11 +18,6 @@ angular.module('jokes', [
   .when('/', {
     templateUrl: 'app/home/home.html',
     controller: 'HomeController'
-    // resolve: {
-    //   allJokes: function(Jokes) {
-    //     return Jokes.getAll()
-    //   }
-    // }
   })
   .when('/:type', {
     templateUrl: 'app/home/home.html',

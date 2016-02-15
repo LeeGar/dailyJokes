@@ -8,12 +8,22 @@ angular.module('jokes.home', [])
     allJokes.getAllJokes
   };
 
+  $scope.getTodaysJoke = function () {
+    
+  };
+
+
+  $scope.like = function () {
+    allJokes.like();
+  };
+
+  $scope.dislike = function () {
+    allJokes.dislike();
+  };
+
   $scope.destroytoken = function () {
     Auth.signout();
   };
-
-  
-
 })
 
 .factory('allJokes', function ($http) {
@@ -29,8 +39,18 @@ angular.module('jokes.home', [])
     });
   }
 
+  var like = function (target) {
+    //increment the counter for the target joke's likes
+  }
+
+  var dislike = function (target) {
+    //increment the counter for the target joke's dislikes
+  }
+
   return {
-    getAllJokes: getAllJokes
+    getAllJokes: getAllJokes,
+    like: like,
+    dislike: dislike
   };
 });
 
