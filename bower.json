@@ -1,0 +1,25 @@
+{
+  "name": "jokesProject",
+  "description": "Outline for a project involving jokes",
+  "main": "index.js",
+  "authors": [
+    "Gar Lee"
+  ],
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/LeeGar/jokesProject",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "client/lib"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-mocks": "^1.5.0",
+    "angular-route": "^1.5.0"
+  }
+}
