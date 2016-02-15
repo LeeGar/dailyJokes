@@ -21,7 +21,7 @@ module.exports = {
               var token = jwt.encode(user, 'secret');
               response.json({token: token});
             } else {
-              return next( new Error('Error signing in'));
+              return next(new Error('Error signing in'));
             }
           })
         }
@@ -56,11 +56,25 @@ module.exports = {
   },
 
   verify: function (request, response, next) {
-    
+    var token = request.headers['x-access-token'];
+    if (!token) {
+      next(new Error('Authentication failed'))
+    } else {
+      var user = jwt.decode(token, 'secret');
+      findUser({username: user.username})
+      .then(function (found) {
+        if (found) {
+          response.send(200);
+        } else {
+          response.send(404);
+        }
+      }).fail(function (error) {
+        next(error);
+      });
+    }
   }
-
-
 };
+
 
 
 

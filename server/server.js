@@ -13,9 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true});
 app.use(express.static(__dirname + '/../client'));
 
-
 app.use('jokes/users', userRouter);
-app.use('jokes/jokes', jokesRouter);
 
 app.listen(port, function (error) {
   if (error) {
