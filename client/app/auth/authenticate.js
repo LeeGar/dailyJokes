@@ -64,7 +64,7 @@ angular.module('jokes.authenticate', [])
 
   var signout = function () {
     $window.localStorage.removeItem('com.jokes');
-    $location.path('#/signin');
+    $location.path('/signin');
   };
 
   return {

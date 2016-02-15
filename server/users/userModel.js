@@ -14,10 +14,12 @@ var userSchema = new mongoose.Schema({
     unique: true
   },
   phonenumber: {
-    type: Number,
+    type: String,
     required: true
   },
-  salt: String
+  salt: String,
+  preference: Array
+  
 });
 
 userSchema.methods.checkPW = function(incomingPass) {
