@@ -1,5 +1,5 @@
 <div id='container'>
-  <h3> Home of the jokes </h3>
+
 
   <div class='navi'>
     <ul>
@@ -10,18 +10,19 @@
   </div>
 
 <br>
+<br>
+<br>
 
+<div class='present' ng-controller="HomeController">
 
-  <div class='present' ng-controller="HomeController">
-
-    <h3> {{ display }} </h3>
+   <div class='display'> {{ display }} </div>
     <br>
 
-    <img class='like' src='assets/like.png' 
+    <img class='like rotate' src='assets/like.png' 
     ng-click="like()"/>
-    <img class='dislike' src='assets/dislike.png' 
+    <img class='dislike rotate' src='assets/dislike.png' 
     ng-click="dislike()"/>
-    <img class='text' src='assets/text.png' 
+    <img class='text rotate' src='assets/text.png' 
     ng-click="sendMessage()"/>
   </div>
 
