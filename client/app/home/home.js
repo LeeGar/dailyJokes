@@ -30,7 +30,7 @@ angular.module('jokes.home', [])
   var getAllJokes = function () {
     return $http({
       method: 'GET',
-      url: 'jokes/jokes'
+      url: '/jokes/jokes/'
     }).then(function (res) {
       return res.data;
     }).catch(function (error) {
@@ -40,6 +40,7 @@ angular.module('jokes.home', [])
 
   var like = function (target) {
     console.log('liked!')
+    getAllJokes();
     //increment the counter for the target joke's likes
   }
 
