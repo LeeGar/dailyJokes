@@ -27,11 +27,14 @@ angular.module('jokes.home', [])
 
 .factory('allJokes', function ($http) {
 
+var totalJokes;
+
   var getAllJokes = function () {
     return $http({
       method: 'GET',
       url: '/jokes/jokes/'
     }).then(function (res) {
+      totalJokes = res.data;
       return res.data;
     }).catch(function (error) {
       console.error(error);
