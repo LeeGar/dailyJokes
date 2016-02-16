@@ -32,7 +32,7 @@ body {
 
 .display {
   font-family: "Lucida Grande", Tahoma;
-  font-size: 11px;
+  font-size: 15px;
   font-weight: lighter;
   font-variant: normal;
   text-transform: uppercase;
@@ -45,18 +45,18 @@ body {
 }
 
 .like {
-  height: 100px;
-  width: 100px;
+  height: 90px;
+  width: 90px;
 }
 
 .dislike {
-  height: 100px;
-  width: 100px;
+  height: 90px;
+  width: 90px;
 }
 
 .text {
-  height: 100px;
-  width: 100px;
+  height: 90px;
+  width: 90px;
 }
 
 .like:hover {
@@ -70,12 +70,6 @@ body {
 .text:hover {
   transform: rotate(360deg);
   border-radius: 50%;
-}
-
-
-.text {
-  height: 100px;
-  width: 100px;
 }
 
 .rotate {
