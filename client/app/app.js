@@ -28,12 +28,11 @@ angular.module('jokes', [
   $httpProvider.interceptors.push('AttachTokens');
 })
 
-
-
 .factory('AttachTokens', function ($window) {
+
     var attach = {
     request: function (object) {
-      var jwt = $window.localStorage.getItem('com.jokes');
+      var jwt = $window.localStorage.getItem('com.database');
       if (jwt) {
         object.headers['x-access-token'] = jwt;
       }

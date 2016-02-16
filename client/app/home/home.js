@@ -15,6 +15,10 @@ angular.module('jokes.home', [])
     });
   };
 
+  $scope.sendMessage = function () {
+    allJokes.sendMessage();
+  };
+
   $scope.like = function () {
     allJokes.like();
   };
@@ -32,7 +36,7 @@ angular.module('jokes.home', [])
 
 .factory('allJokes', function ($http) {
 
-var todaysJoke = 0;
+var todaysJoke = 5;
 
   var getAllJokes = function () {
     return $http({
@@ -61,20 +65,37 @@ var todaysJoke = 0;
     return $http({
       method: 'POST',
       url: '/jokes/jokes/',
-      data: [todaysJoke]
+      data: [todaysJoke, 'like']
     })
   }
 
   var dislike = function (target) {
     console.log('disliked!')
-    //increment the counter for the target joke's dislikes
+    return $http({
+      method: 'POST',
+      url: '/jokes/jokes/',
+      data: [todaysJoke, 'dislike']
+    })
+  }
+
+  var sendMessage = function () {
+    console.log('sending text...')
+    $http({
+      method: 'POST',
+      url: '/jokes/users/',
+      data: [todaysJoke, 'send']
+    }).then(function (res) {
+      console.log('message successful to ', res.data);
+      
+    })
   }
 
   return {
     getAllJokes: getAllJokes,
     getTodaysJoke: getTodaysJoke,
     like: like,
-    dislike: dislike
+    dislike: dislike,
+    sendMessage: sendMessage
   }
 
 });

@@ -31,8 +31,7 @@ angular.module('jokes.auth', [])
     $window.localStorage.removeItem('com.database');
     $location.path('#/signin');
   };
-
-
+  
   return {
     signin: signin,
     signup: signup,

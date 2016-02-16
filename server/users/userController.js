@@ -75,5 +75,17 @@ module.exports = {
           next(error);
         });
     }
+  },
+
+  getUsers: function (request, response, next) {
+    var token = request.headers['x-access-token'];
+    var user = jwt.decode(token, 'secret');
+    findUser({username: user.username})
+      .then(function (found) {
+        if (found) {
+          response.send([found.username, found.phonenumber]);
+        }
+      })
   }
+
 };
