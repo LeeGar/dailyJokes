@@ -1,13 +1,12 @@
 var userController = require('../users/userController.js');
+var textController = require('../text/textController.js');
 var jokes = require('../data/jokes.js');
 var helpers = require('./helpers.js');
-var textController = require('../text/textController.js');
 
 module.exports = function (app, express) {
 
   app.post('/jokes/users/signin', userController.signin);
   app.post('/jokes/users/signup', userController.signup);
-  //app.get('/jokes/users/signedin', userController.verify);
 
   app.post('/jokes/users/', textController.getUsers);
 
