@@ -36,7 +36,8 @@ angular.module('jokes.home', [])
 
 .factory('allJokes', function ($http) {
 
-var todaysJoke = 5;
+
+var todaysJoke = Math.floor(Math.random() * 30)
 
   var getAllJokes = function () {
     return $http({
@@ -55,7 +56,9 @@ var todaysJoke = 5;
       method: 'GET',
       url: '/jokes/jokes/'
     }).then(function (res) {
+     
      var joke = res.data.jokes[todaysJoke];
+
       return cb(joke.message);
     });
   }
@@ -86,7 +89,7 @@ var todaysJoke = 5;
       data: [todaysJoke, 'send']
     }).then(function (res) {
       console.log('message successful to ', res.data);
-      
+
     })
   }
 
