@@ -1,6 +1,6 @@
 var Q = require('q');
 var mongoose = require('mongoose');
-var bcrypt = require('brypt');
+var bcrypt = require('bcrypt-nodejs');
 
 var userSchema = new mongoose.Schema({
   username: {
@@ -57,5 +57,4 @@ userSchema.pre('save', function (next) {
   });
 });
 
-var User = mongoose.model('users', userSchema);
-module.exports = User;
+module.exports = mongoose.model('users', userSchema);

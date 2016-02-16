@@ -1,25 +1,21 @@
 {
-  "name": "jokesProject",
-  "description": "Outline for a project involving jokes",
-  "main": "index.js",
-  "authors": [
-    "Gar Lee"
-  ],
-  "license": "UNLICENSED",
-  "homepage": "https://github.com/LeeGar/jokesProject",
-  "moduleType": [],
-  "private": true,
+  "name": "dailyJokes",
+  "version": "0.0.0",
+  "authors": "gar",
+  "license": "MIT",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
-    "test",
-    "tests",
     "client/lib"
   ],
   "dependencies": {
-    "angular": "^1.5.0",
-    "angular-mocks": "^1.5.0",
-    "angular-route": "^1.5.0"
+    "angular": "~1.3.16",
+    "angular-route": "~1.3.16",
+    "angular-mocks": "~1.3.16",
+    "angular-animate": "^1.5.0"
+  },
+  "resolutions": {
+    "angular": "1.3.20"
   }
 }

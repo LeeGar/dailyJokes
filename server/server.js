@@ -1,26 +1,13 @@
 var express = require('express');
 var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
-
-var port = process.env.PORT || 3000;
-var dbUri = process.env.MONGOLAB_URI || 'mongodb://localhost/jokes';
 
 var app = express();
 
-mongoose.connect(dbUri);
+mongoose.connect('mongodb://localhost/database');
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true});
-app.use(express.static(__dirname + '/../client'));
+require('./config/middleware.js')(app, express);
+require('./config/routes.js')(app, express);
 
-app.use('jokes/users', userRouter);
-
-app.listen(port, function (error) {
-  if (error) {
-  console.error(error)
-  }
-  console.log('now listening in on port: ', port)
-});
+app.listen(8000);
 
 module.exports = app;
-

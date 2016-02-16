@@ -1,5 +1,6 @@
 angular.module('jokes', [
   'jokes.authenticate',
+  'jokes.auth',
   'jokes.home',
   'ngRoute'
 ])
