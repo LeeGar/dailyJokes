@@ -32,7 +32,7 @@ angular.module('jokes.home', [])
 
 .factory('allJokes', function ($http) {
 
-var totalJokes;
+var todaysJoke = 0;
 
   var getAllJokes = function () {
     return $http({
@@ -51,14 +51,18 @@ var totalJokes;
       method: 'GET',
       url: '/jokes/jokes/'
     }).then(function (res) {
-     var joke = res.data.jokes[0];
+     var joke = res.data.jokes[todaysJoke];
       return cb(joke.message);
     });
   }
 
   var like = function (target) {
     console.log('liked!')
-    //increment the counter for the target joke's likes
+    return $http({
+      method: 'POST',
+      url: '/jokes/jokes/',
+      data: [todaysJoke]
+    })
   }
 
   var dislike = function (target) {
@@ -72,5 +76,6 @@ var totalJokes;
     like: like,
     dislike: dislike
   }
+
 });
 
