@@ -1,14 +1,18 @@
 angular.module('jokes.home', [])
 
-.controller('HomeController', function ($scope, $location, allJokes) {
-  $scope.jokes = {};
+.controller('HomeController', function ($scope, $location, allJokes, Auth) {
+  $scope.display;
+  var today;
 
   $scope.getAllJokes = function () {
-    allJokes.getAllJokes
+    allJokes.getAllJokes();
   };
 
   $scope.getTodaysJoke = function () {
-    
+    allJokes.getTodaysJoke(function(res) {
+      today = res;
+      $scope.display = today;
+    });
   };
 
   $scope.like = function () {
@@ -23,6 +27,7 @@ angular.module('jokes.home', [])
     Auth.signout();
   };
 
+  $scope.getTodaysJoke();
 })
 
 .factory('allJokes', function ($http) {
@@ -41,9 +46,18 @@ var totalJokes;
     });
   }
 
+  var getTodaysJoke = function (cb) {
+    return $http({
+      method: 'GET',
+      url: '/jokes/jokes/'
+    }).then(function (res) {
+     var joke = res.data.jokes[0];
+      return cb(joke.message);
+    });
+  }
+
   var like = function (target) {
     console.log('liked!')
-    getAllJokes();
     //increment the counter for the target joke's likes
   }
 
@@ -54,6 +68,7 @@ var totalJokes;
 
   return {
     getAllJokes: getAllJokes,
+    getTodaysJoke: getTodaysJoke,
     like: like,
     dislike: dislike
   }
