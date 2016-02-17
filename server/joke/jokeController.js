@@ -38,9 +38,10 @@ module.exports = {
   },
 
   addLike: function (request, response, next) {
-    var message = request.body.message;
+    //var message = request.body.message;
+    console.log('request is: ', request.body);
 
-    findJoke({message: message})
+    findJoke({message: request.body[0]})
     .then(function (joke) {
       if (!joke) {
         return next(new Error('Joke not found'));
@@ -58,9 +59,9 @@ module.exports = {
   },
 
   addDislike: function (request, response, next) {
-    var message = request.body.message;
+    //var message = request.body.message;
 
-    findJoke({message: message})
+    findJoke({message: request.body[0]})
     .then(function (joke) {
       if (!joke) {
         return next(new Error('Joke not found'));

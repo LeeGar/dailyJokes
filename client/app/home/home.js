@@ -38,7 +38,7 @@ angular.module('jokes.home', [])
 
 
 var todaysJoke = Math.floor(Math.random() * 30)
-
+var joke = '';
 
   var getAllJokes = function () {
     return $http({
@@ -58,8 +58,7 @@ var todaysJoke = Math.floor(Math.random() * 30)
       url: '/jokes/jokes/'
     }).then(function (res) {
      
-     var joke = res.data.jokes[todaysJoke];
-
+     joke = res.data.jokes[todaysJoke];
       return cb(joke.message);
     });
   }
@@ -68,8 +67,8 @@ var todaysJoke = Math.floor(Math.random() * 30)
     console.log('liked!')
     return $http({
       method: 'POST',
-      url: '/jokes/jokes/',
-      data: [todaysJoke, 'like']
+      url: '/jokes/jokes/like',
+      data: [joke.message, 'like']
     })
   }
 
@@ -77,8 +76,8 @@ var todaysJoke = Math.floor(Math.random() * 30)
     console.log('disliked!')
     return $http({
       method: 'POST',
-      url: '/jokes/jokes/',
-      data: [todaysJoke, 'dislike']
+      url: '/jokes/jokes/dislike',
+      data: [joke.message, 'dislike']
     })
   }
 
