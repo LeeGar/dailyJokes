@@ -1,6 +1,7 @@
 angular.module('jokes', [
   'jokes.authenticate',
   'jokes.auth',
+  'jokes.add',
   'jokes.home',
   'ngRoute'
 ])
@@ -19,6 +20,10 @@ angular.module('jokes', [
   .when('/', {
     templateUrl: 'app/home/home.html',
     controller: 'HomeController'
+  })
+  .when('/addjoke', {
+    templateUrl: 'app/joke/addjoke.html',
+    controller: 'JokeController'
   })
   .when('/:type', {
     templateUrl: 'app/home/home.html',

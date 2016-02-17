@@ -1,11 +1,12 @@
 var User = require('./userModel.js');
-    Q = require('q');
-    jwt = require('jwt-simple');
+var Q = require('q');
+var jwt = require('jwt-simple');
 
 var findUser = Q.nbind(User.findOne, User);
 var createUser = Q.nbind(User.create, User);
 
 module.exports = {
+
   signin: function (req, res, next) {
     var username = req.body.username;
     var password = req.body.password;

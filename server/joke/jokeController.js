@@ -22,8 +22,9 @@ module.exports = {
     findJoke({message: message})
     .then(function (joke) {
       if (joke) {
-        next(new Error('Joke already found'))
+        next(new Error('Joke already exists'));
       } else {
+        console.log('a new joke will be created in server: ', message);
         return createJoke({
           type: type,
           message: message,
@@ -76,4 +77,4 @@ module.exports = {
     });
   }
 
-}
+};

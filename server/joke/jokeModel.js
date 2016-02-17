@@ -12,4 +12,6 @@ jokeSchema.pre('save', function (next) {
   next();
 })
 
-module.exports('Joke', jokeSchema);
+
+
+module.exports = mongoose.model('jokes', jokeSchema);
