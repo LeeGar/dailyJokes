@@ -36,7 +36,6 @@ angular.module('jokes.home', [])
 
 .factory('allJokes', function ($http) {
 
-
 var todaysJoke = Math.floor(Math.random() * 30)
 var joke = '';
 

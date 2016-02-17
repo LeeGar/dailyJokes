@@ -32,6 +32,9 @@ module.exports = {
           dislikes: dislikes
         });
       }
+    }).then(function () {
+      response.send(200);
+      next();
     }).fail(function (error) {
       next(error);
     })
@@ -51,6 +54,7 @@ module.exports = {
           if (error) {
             next(new Error('Error occured liking'))
           } else {
+            response.send(200);
             next();
           }
         })
@@ -59,7 +63,6 @@ module.exports = {
   },
 
   addDislike: function (request, response, next) {
-    //var message = request.body.message;
 
     findJoke({message: request.body[0]})
     .then(function (joke) {
@@ -71,6 +74,7 @@ module.exports = {
           if (error) {
             next(new Error('Error occured liking'))
           } else {
+            response.send(200);
             next();
           }
         })

@@ -6,8 +6,10 @@ angular.module('jokes.add', [])
   $scope.addJoke = function () {
     $scope.joke.likes = 0;
     $scope.joke.dislikes = 0;
+
     Jokes.create($scope.joke);
   }
+
 
 })
 
@@ -20,7 +22,7 @@ angular.module('jokes.add', [])
       url: '/jokes/jokes/',
       data: data
     }).then(function (res) {
-      console.log('res is: ', res);
+      //console.log('res is: ', res);
     })
   };
 

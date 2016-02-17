@@ -37,7 +37,7 @@ module.exports.jokes = [
   {
   "id": 6,
   "type": "tame",
-  "message": "What did the finger say to the thumb? -I'm in g-love with you!",
+  "message": "What did the finger say to the thumb? -I'm in glove with you!",
   "likes": 0,
   "dislikes": 0
   },
@@ -156,7 +156,7 @@ module.exports.jokes = [
   {
   "id": 23,
   "type": "chuck", 
-  "message": "“It works on my machine” always holds true for Chuck Norris.",
+  "message": "It works on my machine” always holds true for Chuck Norris.",
   "likes": 0,
   "dislikes": 0
   },
@@ -212,7 +212,7 @@ module.exports.jokes = [
   {
   "id": 31,
   "type": "chuck", 
-  "message": "When Chuck Norris is web surfing websites get the message “Warning: Internet Explorer has deemed this user to be malicious or dangerous. Proceed?”.",
+  "message": "When Chuck Norris is surfing the web, the internet stops for everyone else.",
   "likes": 0,
   "dislikes": 0
   }
