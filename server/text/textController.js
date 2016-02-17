@@ -3,12 +3,16 @@ var jwt = require('jwt-simple');
 var User = require('../users/userModel.js');
 var Q = require('q');
 var jokes = require('../data/jokes.js');
+var keys = require('./textKeys.js');
+
+
+
 
 var findUser = Q.nbind(User.findOne, User);
 
 var p = plivo.RestAPI({
-  authId: 'MAOTBKNGQXZMU4Y2E2YZ',
-  authToken: 'Mjk0MzdlNzkwMjllMTE2ZGU0NjdlYmI4MzQwNjY1'
+  authId: keys.keys[0].authId,
+  authToken: keys.keys[0].authToken
 })
 
 var params = {
