@@ -9,6 +9,10 @@ To get started
 npm install
 bower install
 ```
+Start server with node
+```sh
+node server/server.js
+```
 
 Sign up with a username, password, and a 10-digit phone number!
 
