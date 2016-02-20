@@ -56,7 +56,6 @@ var joke = '';
       method: 'GET',
       url: '/jokes/jokes/'
     }).then(function (res) {
-     
      joke = res.data.jokes[todaysJoke];
       return cb(joke.message);
     });
@@ -81,14 +80,10 @@ var joke = '';
   }
 
   var sendMessage = function () {
-    console.log('sending text...')
     $http({
       method: 'POST',
       url: '/jokes/users/',
       data: [todaysJoke, 'send']
-    }).then(function (res) {
-      console.log('message successful to ', res.data);
-
     })
   }
 

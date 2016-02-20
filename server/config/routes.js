@@ -16,9 +16,6 @@ module.exports = function (app, express) {
   app.post('/jokes/jokes/like', jokeController.addLike);
   app.post('/jokes/jokes/dislike', jokeController.addDislike);
 
-  //app.get('/jokes/jokes/', jokeController.getJokes);
-
-
   app.get('/jokes/jokes/', function (request, response) {
     response.send(jokes)
   });

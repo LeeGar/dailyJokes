@@ -87,6 +87,5 @@ module.exports = {
           response.send([found.username, found.phonenumber]);
         }
       })
-  }
-
+   }
 };

@@ -17,14 +17,13 @@ module.exports = {
     var type = request.body.type;
     var message = request.body.message;
     var likes = request.body.likes;
-    var dislikes = request.body.likes;
+    var dislikes = request.body.dislikes;
 
     findJoke({message: message})
     .then(function (joke) {
       if (joke) {
         next(new Error('Joke already exists'));
       } else {
-        console.log('a new joke will be created in server: ', message);
         return createJoke({
           type: type,
           message: message,
@@ -41,9 +40,6 @@ module.exports = {
   },
 
   addLike: function (request, response, next) {
-    //var message = request.body.message;
-    console.log('request is: ', request.body);
-
     findJoke({message: request.body[0]})
     .then(function (joke) {
       if (!joke) {
@@ -63,7 +59,6 @@ module.exports = {
   },
 
   addDislike: function (request, response, next) {
-
     findJoke({message: request.body[0]})
     .then(function (joke) {
       if (!joke) {
